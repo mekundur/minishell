@@ -6,7 +6,7 @@
 /*   By: pvasilan <pvasilan@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 14:55:58 by lsasse            #+#    #+#             */
-/*   Updated: 2025/01/22 15:15:28 by pvasilan         ###   ########.fr       */
+/*   Updated: 2025/01/24 14:09:44 by mekundur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_exec_run(t_execcmd *ecmd, t_mini *mini)
 		if (pid > 0)
 			signal(SIGINT, SIG_IGN);
 		waitpid(pid, &mini->exit_status, 0);
-		ft_exit_status(mini);
+		ft_exit_status_parent(mini);
 		standard_signal_setup();
 	}
 }
@@ -111,14 +111,12 @@ void	cmd_run(t_cmd *cmd, t_mini *mini)
 	else
 	{
 		pid = fork();
-		if(pid == 0)
+		if (pid == 0)
 		{
 			if (cmd->type == REDIR)
 				ft_redir(cmd, mini);
 			else if (cmd->type == PIPE)
 				ft_pipe(cmd, mini);
-			else if (cmd->type == HEREDOC)
-				ft_redir(cmd, mini);
 			else
 				panic("[ERROR]: Issue with cmd_run", mini);
 			exit(mini->exit_status);
@@ -126,7 +124,7 @@ void	cmd_run(t_cmd *cmd, t_mini *mini)
 		if (pid > 0)
 			signal(SIGINT, SIG_IGN);
 		waitpid(pid, &mini->exit_status, 0);
-		ft_exit_status(mini);
+		ft_exit_status_child(mini);
 		standard_signal_setup();
 	}
 }

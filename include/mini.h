@@ -76,7 +76,7 @@ void	ft_fork_l(t_cmd *left, int *p, t_mini *mini);
 void	ft_fork_r(t_cmd *right, int *p, t_mini *mini);
 void	ft_pipe(t_cmd *cmd, t_mini *mini);
 void	ft_redir(t_cmd *cmd, t_mini *mini);
-void	handle_heredoc(t_rdcmd *cmd, t_mini *mini);
+void	ft_heredoc(t_rdcmd *cmd, t_mini *mini);
 void	heredoc_signal_handler(int sig);
 void	setup_heredoc_signals(void);
 /* PARSING */
@@ -104,7 +104,8 @@ void	ft_multi_free(char *s1, char *s2, char *s3, char *s4);
 void	ft_execvp(char *file, char **args, t_mini *mini);
 int		ft_is_whitespace(char s);
 char	*ft_strtok(char *str, const char *delim);
-void	ft_exit_status(t_mini *mini);
+void	ft_exit_status_parent(t_mini *mini);
+void	ft_exit_status_child(t_mini *mini);
 void	ft_set_pwd_var(t_mini *mini, char cwd[100]);
 void	ft_set_oldpwd_var(t_mini *mini, char cwd[100]);
 bool	ft_has_flags(char **argv);

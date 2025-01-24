@@ -12,19 +12,22 @@
 
 ## --- VARIABLES --- ##
 # Utils source files
-UTILS_SRC = 2d_str_utils errors execvp expand_vars fgets getenv has_flags \
+UTILS_SRC = 2d_str_utils errors execute_utils expand_vars fgets getenv has_flags \
 	is_whitespace mem_utils parsing_utils quote_utils slice ft_gc exit_status \
-	free_utils ft_pipe ft_redir token_utils expansion_utils expansion_utils2 \
-	ft_remove_newline ft_remove_quotes ft_get_delim  ft_redir_utils
+	free_utils  token_utils expansion_utils expansion_utils2 \
+	ft_remove_newline ft_remove_quotes ft_get_delim ft_heredoc_utils
 UTILS_SRC := $(addprefix src/utils/, $(addsuffix .c, $(UTILS_SRC)))
 
-# Commands source files
+# Builtins source files
 CMD_SRC = cd.c echo.c env.c export.c unset.c exit.c pwd.c
 CMD_SRC := $(addprefix src/commands/ft_, $(CMD_SRC))
 
 # Minishell source files
-SRC = constructors.c execute.c heredoc.c main.c parsing.c signals.c quotes.c \
-	parsing_redir.c heredoc_utils.c pars_redir_utils.c
+
+# quotes.c // THIS FILE HAS A MAIN IN IT!!!
+
+SRC = main.c parsing.c signals.c constructors.c execute.c ft_pipe.c ft_redir.c \
+	parsing_redir.c pars_redir_utils.c ft_heredoc.c 
 SRC := $(addprefix src/, $(SRC))
 SRC += $(CMD_SRC)
 SRC += $(UTILS_SRC)

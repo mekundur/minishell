@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc_utils.c                                    :+:      :+:    :+:   */
+/*   ft_heredoc_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvasilan <pvasilan@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 15:20:06 by pvasilan          #+#    #+#             */
-/*   Updated: 2025/01/23 13:53:58 by pvasilan         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:42:13 by mekundur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	heredoc_signal_handler(int sig)
 {
 	(void) sig;
 	write(STDOUT_FILENO, "\n", 1);
-    exit(130);
+	exit(130);
 }
 
 void	setup_heredoc_signals(void)

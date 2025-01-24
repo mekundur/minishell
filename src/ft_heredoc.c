@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc.c                                          :+:      :+:    :+:   */
+/*   ft_heredoc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvasilan <pvasilan@student.42.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 19:22:48 by pvasilan          #+#    #+#             */
-/*   Updated: 2025/01/23 13:58:59 by pvasilan         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:24:43 by mekundur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	process_line(char *line, const char *delimiter,
 	free(line);
 }
 
-void	handle_heredoc(t_rdcmd *rcmd, t_mini *mini)
+void	ft_heredoc(t_rdcmd *rcmd, t_mini *mini)
 {
 	char	*line;
 	int		fd_w;
@@ -72,5 +72,5 @@ void	heredoc_handler_coda(pid_t pid, t_mini *mini)
 {
 	waitpid(pid, &mini->exit_status, 0);
 	standard_signal_setup();
-	ft_exit_status(mini);
+	ft_exit_status_parent(mini);
 }

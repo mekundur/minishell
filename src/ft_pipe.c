@@ -30,7 +30,7 @@ void	ft_process_heredocs(t_cmd *cmd, t_mini *mini)
 		rcmd = (t_rdcmd *)cmd;
 		if (rcmd->delim)
 		{
-			handle_heredoc(rcmd, mini);
+			ft_heredoc(rcmd, mini);
 			rcmd->delim = NULL;
 		}
 		ft_process_heredocs(rcmd->cmd, mini);
@@ -60,7 +60,7 @@ void	ft_pipe(t_cmd *cmd, t_mini *mini)
 		signal(SIGINT, SIG_IGN);
 	waitpid(pid_l, NULL, 0);
 	waitpid(pid_r, &mini->exit_status, 0);
-	ft_exit_status(mini);
+	ft_exit_status_child(mini);
 	standard_signal_setup();
 	exit(mini->exit_status);
 }
