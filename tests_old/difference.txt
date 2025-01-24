@@ -1,0 +1,745 @@
+COMMAND: ls
+
+MiniShell Output:
+Makefile
+README.md
+include
+lib
+minishell
+resources
+src
+test.sh
+tests_other
+ttests
+
+Bash Output:
+include
+lib
+Makefile
+minishell
+README.md
+resources
+src
+test.sh
+tests_other
+ttests
+
+-----------------------------
+
+COMMAND: ls -l
+
+MiniShell Output:
+total 108
+-rwxr-xr-x 1 mekundur 2023_berlin  2850 Dec  4 14:11 Makefile
+-rw-r--r-- 1 mekundur 2023_berlin    11 Nov  2 17:59 README.md
+drwxr-xr-x 2 mekundur 2023_berlin    68 Dec  4 14:11 include
+drwxr-xr-x 3 mekundur 2023_berlin    36 Nov 11 16:02 lib
+-rwxr-xr-x 1 mekundur 2023_berlin 94000 Dec  8 13:31 minishell
+drwxr-xr-x 2 mekundur 2023_berlin    27 Nov  2 17:59 resources
+drwxr-xr-x 4 mekundur 2023_berlin  4096 Dec  8 13:31 src
+-rwxr-xr-x 1 mekundur 2023_berlin  1661 Dec  8 13:38 test.sh
+drwxr-xr-x 2 mekundur 2023_berlin   150 Dec  8 13:34 tests_other
+drwxr-xr-x 2 mekundur 2023_berlin   156 Dec  4 14:11 ttests
+
+Bash Output:
+total 108
+drwxr-xr-x 2 mekundur 2023_berlin    68 Dec  4 14:11 include
+drwxr-xr-x 3 mekundur 2023_berlin    36 Nov 11 16:02 lib
+-rwxr-xr-x 1 mekundur 2023_berlin  2850 Dec  4 14:11 Makefile
+-rwxr-xr-x 1 mekundur 2023_berlin 94000 Dec  8 13:31 minishell
+-rw-r--r-- 1 mekundur 2023_berlin    11 Nov  2 17:59 README.md
+drwxr-xr-x 2 mekundur 2023_berlin    27 Nov  2 17:59 resources
+drwxr-xr-x 4 mekundur 2023_berlin  4096 Dec  8 13:31 src
+-rwxr-xr-x 1 mekundur 2023_berlin  1661 Dec  8 13:38 test.sh
+drwxr-xr-x 2 mekundur 2023_berlin   150 Dec  8 13:34 tests_other
+drwxr-xr-x 2 mekundur 2023_berlin   156 Dec  4 14:11 ttests
+
+-----------------------------
+
+COMMAND: echo ''
+
+MiniShell Output:
+
+Bash Output:
+
+
+-----------------------------
+
+COMMAND: echo "aspas ->'"
+
+MiniShell Output:
+aspas ->"
+
+Bash Output:
+aspas ->'
+
+-----------------------------
+
+COMMAND: echo "aspas -> ' "
+
+MiniShell Output:
+aspas ->  
+
+Bash Output:
+aspas -> ' 
+
+-----------------------------
+
+COMMAND: echo 'aspas ->"'
+
+MiniShell Output:
+aspas ->'
+
+Bash Output:
+aspas ->"
+
+-----------------------------
+
+COMMAND: echo 'aspas -> " '
+
+MiniShell Output:
+aspas ->  
+
+Bash Output:
+aspas -> " 
+
+-----------------------------
+
+COMMAND: | echo oi
+
+MiniShell Output:
+oi
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi |   |
+
+MiniShell Output:
+hi | |
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi |  "|"
+
+MiniShell Output:
+hi | |
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: env | sort | grep -v SHLVL | grep -v ^_
+
+MiniShell Output:
+COLORTERM=truecolor
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/102298/bus
+DESKTOP_SESSION=ubuntu
+DISPLAY=:0
+DOCKER_HOST=unix:///run/user/102298/docker.sock
+GDMSESSION=ubuntu
+GDM_LANG=en
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/58259de7_1f1f_4549_98bc_85302a55b0d7
+GNOME_TERMINAL_SERVICE=:1.98
+GPG_AGENT_INFO=/run/user/102298/gnupg/S.gpg-agent:0:1
+GTK_IM_MODULE=ibus
+GTK_MODULES=gail:atk-bridge
+HOME=/home/mekundur
+KRB5CCNAME=FILE:/tmp/krb5cc_102298_WzHsh4
+LANG=en_US.UTF-8
+LANGUAGE=en
+LOGNAME=mekundur
+MAIL=mekundur@student.42berlin.de
+OLDPWD=/home/mekundur/42/minishell
+PATH=/home/mekundur/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PWD=/home/mekundur/42/minishell/miniHell
+QT_ACCESSIBILITY=1
+QT_IM_MODULE=ibus
+SESSION_MANAGER=local/c3a2c10.42berlin.de:@/tmp/.ICE-unix/3358,unix/c3a2c10.42berlin.de:/tmp/.ICE-unix/3358
+SHELL=/home/mekundur/42/minishell/miniHell/minishell
+SSH_AGENT_LAUNCHER=gnome-keyring
+SSH_AUTH_SOCK=/run/user/102298/keyring/ssh
+SYSTEMD_EXEC_PID=3377
+TERM=xterm-256color
+USER=mekundur
+VTE_VERSION=6800
+XAUTHORITY=/home/mekundur/.Xauthority
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/mekundur/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/mekundur
+XDG_MENU_PREFIX=gnome-
+XDG_RUNTIME_DIR=/run/user/102298
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_SESSION_CLASS=user
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+XDG_SESSION_TYPE=x11
+XMODIFIERS=@im=ibus
+
+Bash Output:
+COLORTERM=truecolor
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/102298/bus
+DESKTOP_SESSION=ubuntu
+DISPLAY=:0
+DOCKER_HOST=unix:///run/user/102298/docker.sock
+GDM_LANG=en
+GDMSESSION=ubuntu
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/58259de7_1f1f_4549_98bc_85302a55b0d7
+GNOME_TERMINAL_SERVICE=:1.98
+GPG_AGENT_INFO=/run/user/102298/gnupg/S.gpg-agent:0:1
+GTK_IM_MODULE=ibus
+GTK_MODULES=gail:atk-bridge
+HOME=/home/mekundur
+KRB5CCNAME=FILE:/tmp/krb5cc_102298_WzHsh4
+LANG=en_US.UTF-8
+LANGUAGE=en
+LOGNAME=mekundur
+MAIL=mekundur@student.42berlin.de
+OLDPWD=/home/mekundur/42/minishell
+PATH=/home/mekundur/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PWD=/home/mekundur/42/minishell/miniHell
+QT_ACCESSIBILITY=1
+QT_IM_MODULE=ibus
+SESSION_MANAGER=local/c3a2c10.42berlin.de:@/tmp/.ICE-unix/3358,unix/c3a2c10.42berlin.de:/tmp/.ICE-unix/3358
+SHELL=/bin/zsh
+SSH_AGENT_LAUNCHER=gnome-keyring
+SSH_AUTH_SOCK=/run/user/102298/keyring/ssh
+SYSTEMD_EXEC_PID=3377
+TERM=xterm-256color
+USER=mekundur
+VTE_VERSION=6800
+XAUTHORITY=/home/mekundur/.Xauthority
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/share/gnome:/home/mekundur/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/mekundur
+XDG_MENU_PREFIX=gnome-
+XDG_RUNTIME_DIR=/run/user/102298
+XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+XDG_SESSION_CLASS=user
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+XDG_SESSION_TYPE=x11
+XMODIFIERS=@im=ibus
+
+-----------------------------
+
+COMMAND: grep hi <./test_files/infile
+
+MiniShell Output:
+open ./test_files/infile failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: grep hi "<infile" <         ./test_files/infile
+
+MiniShell Output:
+open ./test_files/infile failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi < ./test_files/infile bye bye
+
+MiniShell Output:
+open ./test_files/infile failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: grep hi <./test_files/infile_big <./test_files/infile
+
+MiniShell Output:
+open ./test_files/infile failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo <"./test_files/infile" "bonjour       42"
+
+MiniShell Output:
+open "./test_files/infile" failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <"./test_files/file name with spaces"
+
+MiniShell Output:
+open "./test_files/file name with spaces" failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <./test_files/infile_big ./test_files/infile
+
+MiniShell Output:
+open ./test_files/infile_big failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <"1""2""3""4""5"
+
+MiniShell Output:
+open "1""2""3""4""5" failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo <"./test_files/infile" <missing <"./test_files/infile"
+
+MiniShell Output:
+open "./test_files/infile" failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo <missing <"./test_files/infile" <missing
+
+MiniShell Output:
+open missing failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <"./test_files/infile"
+
+MiniShell Output:
+open "./test_files/infile" failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo <"./test_files/infile_big" | cat <"./test_files/infile"
+
+MiniShell Output:
+<./test_files/infile_big | cat <./test_files/infile
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo <"./test_files/infile_big" | cat "./test_files/infile"
+
+MiniShell Output:
+<./test_files/infile_big | cat ./test_files/infile
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo <"./test_files/infile_big" | echo <"./test_files/infile"
+
+MiniShell Output:
+<./test_files/infile_big | echo <./test_files/infile
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi | cat <"./test_files/infile"
+
+MiniShell Output:
+hi | cat <./test_files/infile
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi | cat "./test_files/infile"
+
+MiniShell Output:
+hi | cat ./test_files/infile
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <missing
+
+MiniShell Output:
+open missing failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <missing | cat
+
+MiniShell Output:
+open missing failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <missing | cat <"./test_files/infile"
+
+MiniShell Output:
+open "./test_files/infile" failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo <123 <456 hi | echo 42
+
+MiniShell Output:
+<123 <456 hi | echo 42
+
+Bash Output:
+42
+
+-----------------------------
+
+COMMAND: echo hi >./outfiles/outfile01 | echo bye
+
+MiniShell Output:
+hi >./outfiles/outfile01 | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi >./outfiles/outfile01 >./outfiles/outfile02 | echo bye
+
+MiniShell Output:
+hi >./outfiles/outfile01 >./outfiles/outfile02 | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi | echo >./outfiles/outfile01 bye
+
+MiniShell Output:
+hi | echo >./outfiles/outfile01 bye
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi | echo bye >./outfiles/outfile01 >./outfiles/outfile02
+
+MiniShell Output:
+hi | echo bye >./outfiles/outfile01 >./outfiles/outfile02
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi >./outfiles/outfile01 | echo bye >./outfiles/outfile02
+
+MiniShell Output:
+hi >./outfiles/outfile01 | echo bye >./outfiles/outfile02
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi >./outfiles/outfile01 >./test_files/invalid_permission | echo bye
+
+MiniShell Output:
+hi >./outfiles/outfile01 >./test_files/invalid_permission | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi >./test_files/invalid_permission | echo bye
+
+MiniShell Output:
+hi >./test_files/invalid_permission | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi >./test_files/invalid_permission >./outfiles/outfile01 | echo bye
+
+MiniShell Output:
+hi >./test_files/invalid_permission >./outfiles/outfile01 | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi | echo bye >./test_files/invalid_permission
+
+MiniShell Output:
+hi | echo bye >./test_files/invalid_permission
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi | >./outfiles/outfile01 echo bye >./test_files/invalid_permission
+
+MiniShell Output:
+hi | >./outfiles/outfile01 echo bye >./test_files/invalid_permission
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi | echo bye >./test_files/invalid_permission >./outfiles/outfile01
+
+MiniShell Output:
+hi | echo bye >./test_files/invalid_permission >./outfiles/outfile01
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat >./test_files/invalid_permission <"./test_files/infile"
+
+MiniShell Output:
+open "./test_files/infile" failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat >./outfiles/outfile01 <missing
+
+MiniShell Output:
+open missing failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat >./test_files/invalid_permission <missing
+
+MiniShell Output:
+open missing failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: ls >>./test_files/invalid_permission >>./outfiles/outfile02 <missing
+
+MiniShell Output:
+open missing failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi >>./outfiles/outfile01 | echo bye
+
+MiniShell Output:
+hi >>./outfiles/outfile01 | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi >>./outfiles/outfile01 >>./outfiles/outfile02 | echo bye
+
+MiniShell Output:
+hi >>./outfiles/outfile01 >>./outfiles/outfile02 | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi | echo >>./outfiles/outfile01 bye
+
+MiniShell Output:
+hi | echo >>./outfiles/outfile01 bye
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi | echo bye >>./outfiles/outfile01 >>./outfiles/outfile02
+
+MiniShell Output:
+hi | echo bye >>./outfiles/outfile01 >>./outfiles/outfile02
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi >>./outfiles/outfile01 | echo bye >>./outfiles/outfile02
+
+MiniShell Output:
+hi >>./outfiles/outfile01 | echo bye >>./outfiles/outfile02
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi >>./test_files/invalid_permission | echo bye
+
+MiniShell Output:
+hi >>./test_files/invalid_permission | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi >>./test_files/invalid_permission >./outfiles/outfile01 | echo bye
+
+MiniShell Output:
+hi >>./test_files/invalid_permission >./outfiles/outfile01 | echo bye
+
+Bash Output:
+bye
+
+-----------------------------
+
+COMMAND: echo hi | echo bye >>./test_files/invalid_permission
+
+MiniShell Output:
+hi | echo bye >>./test_files/invalid_permission
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo hi | echo >>./outfiles/outfile01 bye >./test_files/invalid_permission
+
+MiniShell Output:
+hi | echo >>./outfiles/outfile01 bye >./test_files/invalid_permission
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: cat <minishell.h|ls
+
+MiniShell Output:
+Makefile
+README.md
+include
+lib
+minishell
+resources
+src
+test.sh
+tests_other
+ttests
+
+Bash Output:
+include
+lib
+Makefile
+minishell
+README.md
+resources
+src
+test.sh
+tests_other
+ttests
+
+-----------------------------
+
+COMMAND: echo *.md
+
+MiniShell Output:
+*.md
+
+Bash Output:
+README.md
+
+-----------------------------
+
+COMMAND: echo 'bye *' mini* bye
+
+MiniShell Output:
+bye * mini* bye
+
+Bash Output:
+bye * minishell bye
+
+-----------------------------
+
+COMMAND: echo *ME*
+
+MiniShell Output:
+*ME*
+
+Bash Output:
+README.md
+
+-----------------------------
+
+COMMAND: echo * | awk -v RS=" " '{print}' | sort
+
+MiniShell Output:
+* | awk -v RS=  {print} | sort
+
+Bash Output:
+
+include
+lib
+Makefile
+minishell
+README.md
+resources
+src
+test.sh
+tests_other
+ttests
+
+-----------------------------
+
+COMMAND: <*.txt
+
+MiniShell Output:
+open *.txt failed
+
+Bash Output:
+
+-----------------------------
+
+COMMAND: echo *EMPTY hello READ* world
+
+MiniShell Output:
+*EMPTY hello READ* world
+
+Bash Output:
+*EMPTY hello README.md world
+
+-----------------------------
+
+COMMAND: cat <README*
+
+MiniShell Output:
+open README* failed
+
+Bash Output:
+# 42-shell
+
+-----------------------------
+

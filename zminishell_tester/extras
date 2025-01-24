@@ -1,0 +1,27 @@
+
+$PWD
+cd $PWD
+$EMPTY
+$EMPTY echo hi
+./test_files/invalid_permission
+./missing.out
+missing.out
+"aaa"
+test_files
+./test_files
+/test_files
+minishell.h
+./extras
+/123
+12345
+$
+$?
+./loop.out
+loop.out
+/loop.out
+missing
+./missing
+/missing
+README.md
+/README.md
+./README.md
