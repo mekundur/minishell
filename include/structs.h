@@ -6,7 +6,7 @@
 /*   By: pvasilan <pvasilan@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:07:01 by rmei              #+#    #+#             */
-/*   Updated: 2025/01/22 15:36:28 by pvasilan         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:45:59 by pvasilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,16 @@ typedef struct s_redir_params
 	int		mode;
 	int		fd;
 }	t_redir_params;
+
+typedef struct s_delim_info {
+	int		start;
+	int		end;
+	bool	in_quotes;
+	bool	found_start;
+	char	quote_char;
+	int		i;
+	int		j;
+	char	*delim;
+}	t_delim_info;
 
 #endif

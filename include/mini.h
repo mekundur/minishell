@@ -6,7 +6,7 @@
 /*   By: pvasilan <pvasilan@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 13:36:09 by lsasse            #+#    #+#             */
-/*   Updated: 2025/01/22 15:38:10 by pvasilan         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:56:01 by mekundur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	gc_free(t_mini *mini, void *ptr);
 void	gc_cleanup(t_mini *mini);
 
 /* MINISHELL */
-
 void	minishell(char *buf, t_mini *mini);
 void	ft_builtin_exec(char **argv, t_mini *mini);
 int		get_cmd(char *buf, int nbuf, t_mini *mini);
@@ -51,7 +50,6 @@ void	cmd_run(t_cmd *cmd, t_mini *mini);
 void	standard_signal_setup(void);
 
 /* BUILTINS */
-
 void	ft_cd(char **argv, t_mini *mini);
 void	ft_echo(char **argv, t_mini *mini);
 void	ft_env(char **argv, t_mini *mini);
@@ -62,7 +60,6 @@ void	ft_exit(char **argv, t_mini *mini);
 void	ft_pwd(t_mini *mini);
 
 /* CONSTRUCTORS */
-
 t_cmd	*exec_cmd(t_mini *mini);
 t_cmd	*pipe_cmd(t_mini *mini, t_cmd *left, t_cmd *right);
 t_cmd	*back_cmd(t_mini *mini, t_cmd *subcmd);
@@ -70,7 +67,6 @@ t_cmd	*heredoc_cmd(t_mini *mini, t_cmd *subcmd, char *delim, char *content);
 void	heredoc_handler_coda(pid_t pid, t_mini *mini);
 
 /* EXEC */
-
 void	ft_back(t_cmd *cmd, t_mini *mini);
 void	ft_fork_l(t_cmd *left, int *p, t_mini *mini);
 void	ft_fork_r(t_cmd *right, int *p, t_mini *mini);
@@ -79,8 +75,8 @@ void	ft_redir(t_cmd *cmd, t_mini *mini);
 void	ft_heredoc(t_rdcmd *cmd, t_mini *mini);
 void	heredoc_signal_handler(int sig);
 void	setup_heredoc_signals(void);
-/* PARSING */
 
+/* PARSING */
 int		token_get(char **ps, char *es, char **q, char **eq);
 int		peek(char **ps, char *es, char *toks);
 t_cmd	*str_null_terminate(t_cmd *cmd);
@@ -94,7 +90,6 @@ t_list	*rev_redir_lst(t_cmd *cmd, t_mini *mini);
 void	ft_redir_file(t_rdcmd *rcmd);
 
 /* UTILS */
-
 int		ft_2dstrlen(char **str);
 char	*ft_getenv(char *variable, char **env);
 char	**ft_2dstrcpy(char **arg, int len, t_mini *mini);
@@ -124,32 +119,26 @@ char	*ft_get_delim(char *file);
 
 /* ERROR HANDLING */
 void	handle_error(const char *message, t_mini *mini);
-
 bool	buffer_ensure_capacity(t_exbuffer *buffer, size_t needed_space);
-
 void	char_copy(t_exbuffer *buffer, char c);
 
 // Variable expansion helper functions
 void	copy_value_to_buffer(t_exbuffer *buff, const char *value);
+
 // Quote handling and main processing
 void	handle_quote(const char **s, bool *in_quote, t_exbuffer *buff);
-
 char	*ft_expand_vars(const char *s, t_mini *mini);
 void	process_input_str(const char *s, t_exbuffer *buff, 
 			char **this_env, t_mini *mini);
 void	expand_curly_variable(const char **s,
 			t_exbuffer *buff, char **this_env);
-
 char	*extract_var_name_len(const char *start, size_t *var_len);
-
 void	put_nbr_to_buffer(t_exbuffer *buff, int n);
 char	*get_curly_var_name(const char **s);
 char	*ft_generate_file_names(char file[100]);
-
 t_cmd	*redircmd_in(t_mini *mini, t_cmd *subcmd, char *file, char *efile);
 t_cmd	*redircmd_out(t_mini *mini, t_cmd *subcmd, char *file, char *efile);
 t_cmd	*redircmd_append(t_mini *mini, t_cmd *subcmd, char *file, char *efile);
-
 t_rdcmd	*create_base_redircmd(t_cmd *subcmd, char *file, char *efile);
 
 #endif

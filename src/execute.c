@@ -6,7 +6,7 @@
 /*   By: pvasilan <pvasilan@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 14:55:58 by lsasse            #+#    #+#             */
-/*   Updated: 2025/01/24 14:09:44 by mekundur         ###   ########.fr       */
+/*   Updated: 2025/04/01 17:59:01 by mekundur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_exec_run(t_execcmd *ecmd, t_mini *mini)
 	int		i;
 
 	i = 0;
-	while (ecmd->argv && ecmd->argv[i])
+	while (ecmd->argv[i])
 		i++;
 	if (is_builtin(ecmd->argv))
 		ft_builtin_exec(ecmd->argv, mini);

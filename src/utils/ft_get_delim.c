@@ -3,90 +3,92 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_delim.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pvasilan <pvasilan@student.42.de>          +#+  +:+       +#+        */
+/*   By: pvasilan <pvasilan@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 14:55:45 by pvasilan          #+#    #+#             */
-/*   Updated: 2025/01/23 13:44:12 by pvasilan         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:45:10 by pvasilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini.h"
 
-char *ft_get_delim(char *file)
+static void	init_info(t_delim_info *info)
 {
-    char    *delim;
-    int     i = 0;
-    int     j = 0;
-    bool    in_quotes = false;
-    bool    found_start = false;
-    char    quote_char = '\0';
-    
-    // Skip initial whitespace
-    while (file[i] && ft_is_whitespace(file[i]))
-        i++;
-        
-    int start = i;
-    // Find the end of the delimiter
-    while (file[i])
-    {
-        // Handle start of quotes
-        if ((file[i] == '"' || file[i] == '\'') && (!in_quotes))
-        {
-            in_quotes = true;
-            quote_char = file[i];
-            if (!found_start)
-                start = i + 1;
-            found_start = true;
-            i++;
-            continue;
-        }
-        
-        // Handle end of quotes
-        if (file[i] == quote_char && in_quotes)
-        {
-            in_quotes = false;
-            break;
-        }
-        
-        // Break on redirect or pipe if not in quotes
-        if (!in_quotes && (file[i] == '<' || file[i] == '>' || file[i] == '|'))
-            break;
-            
-        // If not in quotes and haven't found start yet, handle start
-        if (!in_quotes && !found_start && !ft_is_whitespace(file[i]))
-            found_start = true;
-            
-        // Break on whitespace only if not in quotes and after content
-        if (!in_quotes && found_start && ft_is_whitespace(file[i]))
-            break;
-            
-        i++;
-    }
-    
-    // Calculate end position
-    int end = i;
-    if (in_quotes) // If still in quotes, go to end of content
-        while (file[end] && file[end] != quote_char)
-            end++;
-            
-    // Go back to remove trailing whitespace if not in quotes
-    if (!in_quotes)
-        while (end > start && ft_is_whitespace(file[end - 1]))
-            end--;
-            
-    // If we started with a quote, adjust start position
-    if (file[start] == '"' || file[start] == '\'')
-        start++;
-        
-    // Allocate and copy
-    delim = (char *)malloc((end - start + 1) * sizeof(char));
-    if (!delim)
-        return NULL;
-        
-    // Copy content
-    while (start < end)
-        delim[j++] = file[start++];
-        
-    delim[j] = '\0';
-    return delim;
+	info->start = 0;
+	info->end = 0;
+	info->in_quotes = false;
+	info->found_start = false;
+	info->quote_char = '\0';
+	info->i = 0;
+	info->j = 0;
+}
+
+static void	shift_start(char *file, t_delim_info *info, int *retflag)
+{
+	*retflag = 1;
+	if ((file[info->i] == '"' || file[info->i] == '\'') && (!info->in_quotes))
+	{
+		info->in_quotes = true;
+		info->quote_char = file[info->i];
+		if (!info->found_start)
+			info->start = info->i + 1;
+		info->found_start = true;
+		info->i++;
+		*retflag = 3;
+		return ;
+	}
+}
+
+static void	delim_util(char *file, t_delim_info *info)
+{
+	int	retflag;
+
+	while (file[info->i])
+	{
+		shift_start(file, info, &retflag);
+		if (retflag == 3)
+			continue ;
+		if (file[info->i] == info->quote_char && info->in_quotes)
+		{
+			info->in_quotes = false;
+			break ;
+		}
+		if (!info->in_quotes && (file[info->i] == '<' 
+				|| file[info->i] == '>' || file[info->i] == '|'))
+			break ;
+		if (!info->in_quotes && !info->found_start
+			&& !ft_is_whitespace(file[info->i]))
+			info->found_start = true;
+		if (!info->in_quotes && info->found_start
+			&& ft_is_whitespace(file[info->i]))
+			break ;
+		info->i++ ;
+	}
+}
+
+char	*ft_get_delim(char *file)
+{
+	t_delim_info	info;
+
+	init_info(&info);
+	while (file[info.i] && ft_is_whitespace(file[info.i]))
+		info.i++;
+	info.start = info.i;
+	delim_util(file, &info);
+	info.end = info.i;
+	if (info.in_quotes)
+		while (file[info.end] && file[info.end] != info.quote_char)
+			info.end++;
+	if (!info.in_quotes)
+		while (info.end > info.start && ft_is_whitespace(file[info.end - 1]))
+			info.end--;
+	if (file[info.start] == '"' || file[info.start] == '\'')
+		info.start++;
+	info.delim = (char *)malloc((info.end - info.start + 1) * sizeof(char));
+	if (!info.delim)
+		return (NULL);
+	while (info.start < info.end)
+		info.delim[info.j++] = file[info.start++];
+	info.delim[info.j] = '\0';
+	return (info.delim);
 }

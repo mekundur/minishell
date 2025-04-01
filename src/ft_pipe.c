@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pipe.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pvasilan <pvasilan@student.42.de>          +#+  +:+       +#+        */
+/*   By: pvasilan <pvasilan@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 13:41:09 by pvasilan          #+#    #+#             */
-/*   Updated: 2025/01/23 13:53:48 by pvasilan         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:52:12 by pvasilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_pipe(t_cmd *cmd, t_mini *mini)
 	close(p[1]);
 	if (pid_l > 0 || pid_r > 0)
 		signal(SIGINT, SIG_IGN);
-	waitpid(pid_l, NULL, 0);
+	waitpid(pid_l, &mini->exit_status, 0);
 	waitpid(pid_r, &mini->exit_status, 0);
 	ft_exit_status_child(mini);
 	standard_signal_setup();

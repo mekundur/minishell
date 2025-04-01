@@ -6,7 +6,7 @@
 /*   By: rmei <rmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 19:40:45 by lsasse            #+#    #+#             */
-/*   Updated: 2025/01/24 13:30:15 by mekundur         ###   ########.fr       */
+/*   Updated: 2025/04/01 18:06:13 by mekundur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*set_full_path(char *dir, char *file, char *path)
 	return (full_path);
 }
 
-void	execve_run(char *file, char **args, char *path)
+void	execve_run(char *file, char **args, char *path, t_mini *mini)
 {
 	char	*dir;
 	char	*full_path;
@@ -83,7 +83,7 @@ void	execve_run(char *file, char **args, char *path)
 			if (access(full_path, X_OK) == -1)
 				perror(args[0]);
 			else
-				execve(full_path, args, NULL);
+				execve(full_path, args, mini->env);
 		}
 		free(full_path);
 		dir = ft_strtok(NULL, ":");
@@ -117,5 +117,5 @@ void	ft_execvp(char *file, char **args, t_mini *mini)
 		ft_putendl_fd(": No such file or directory", STDERR_FILENO);
 		exit(127);
 	}
-	execve_run(file, args, path);
+	execve_run(file, args, path, mini);
 }
