@@ -1,3 +1,10 @@
-# 42-minishell
+# A simple interactive shell with CLI inspired by BASH
 
-A simple bash-like shell features a CLI
+Fetaures:
+- pipeline
+- redirections
+- here document
+- error handling
+- exit codes
+- environment variables
+- builtins: echo, pwd, env, export, unset, exit
