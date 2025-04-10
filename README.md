@@ -1,11 +1,10 @@
 # An interactive shell with CLI inspired by BASH
 
 in order to compile & run on your terminal:
-<git clone git@github.com:mekundur/minishell.git>
 
-<make>
-
-<./minishell>
+git clone git@github.com:mekundur/minishell.git
+make
+./minishell
 
 
 Fetaures:
