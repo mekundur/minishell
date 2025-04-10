@@ -10,6 +10,6 @@ Fetaures:
 - builtins: echo, pwd, env, export, unset, exit
 
 in order to compile & run on your terminal:
-> git clone git@github.com:mekundur/minishell.git
+> git clone [git@github.com:mekundur/minishell.git](https://github.com/mekundur/minishell.git)
 > make
 > ./minishell
