@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   execute.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: pvasilan <pvasilan@student.42berlin.de>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/07 14:55:58 by lsasse            #+#    #+#             */
-/*   Updated: 2025/04/01 17:59:01 by mekundur         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "mini.h"
 
 void	ft_builtin_exec(char **argv, t_mini *mini)
@@ -104,6 +92,7 @@ void	cmd_run(t_cmd *cmd, t_mini *mini)
 {
 	pid_t		pid;
 
+	dprintf(STDERR_FILENO, "%d\n", cmd->type);
 	if (cmd == 0)
 		return ;
 	if (cmd->type == EXEC)

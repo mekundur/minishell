@@ -23,9 +23,6 @@ CMD_SRC = cd.c echo.c env.c export.c unset.c exit.c pwd.c
 CMD_SRC := $(addprefix src/commands/ft_, $(CMD_SRC))
 
 # Minishell source files
-
-# quotes.c // THIS FILE HAS A MAIN IN IT!!!
-
 SRC = main.c parsing.c signals.c constructors.c execute.c ft_pipe.c ft_redir.c \
 	parsing_redir.c pars_redir_utils.c ft_heredoc.c 
 SRC := $(addprefix src/, $(SRC))
